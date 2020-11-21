@@ -1,39 +1,33 @@
-# feedback
+# ngx-feedback
 
-> An angular directive for sending feedback featuring [Angular 11](https://angular.io), [Html2canvas](https://html2canvas.hertzen.com/), [Angular Material](https://material.angular.io), [Rxjs](https://rxjs-dev.firebaseapp.com/), inspired by Google send feedback, based on [angular-cli](https://github.com/angular/angular-cli).
+> An angular directive for sending feedback featuring [Angular 11](https://angular.io/), [Html2canvas](https://html2canvas.hertzen.com/), [Angular Material](https://material.angular.io/), [Rxjs](https://rxjs-dev.firebaseapp.com/), inspired by Google send feedback, based on [angular-cli](https://cli.angular.io/).
 
-## Demo
+## Prerequisites
 
-![Alt text](/../screenshots/feedback.gif?raw=true "overview")
+- angular@11
+- angular/material@11
 
-### Prerequisites
+### How to use it in your project
 
-make sure your project:
-
-- is an angular(version >= 11.0.0) project
-- has set up [angular material](https://github.com/angular/material2/blob/master/guides/getting-started.md)
-
-#### How to use it in your project
-
-> download it from npm
+Install:
 
 ```bash
 npm install https://github.com/shealtiel/ngx-feedback --save
 ```
 
-use the feedback module in your project, at any module, you just need to imports into your module:
+Import:
 
-```es6
+```ts
 import { FeedbackModule } from "ng-feedback";
 ```
 
-easy to use the directive, just add it in a html tag, such as:
+Use:
 
-```
+```html
 <button feedback>feedback</button>
 ```
 
-#### Properties
+### Properties
 
 | Name             | Default Value                                                         |
 | ---------------- | --------------------------------------------------------------------- |
@@ -43,42 +37,31 @@ easy to use the directive, just add it in a html tag, such as:
 | `checkboxLabel`  | Include screenshot                                                    |
 | `cancelLabel`    | CANCEL                                                                |
 | `sendLabel`      | SEND                                                                  |
-| `moveToolbarTip` | move toolbar                                                          |
+| `moveToolbarTip` | Move toolbar                                                          |
 | `drawRectTip`    | Draw using yellow to highlight issues or black to hide sensitive info |
-| `highlightTip`   | highlight issues                                                      |
-| `hideTip`        | hide sensitive info                                                   |
+| `highlightTip`   | Highlight issues                                                      |
+| `hideTip`        | Hide sensitive info                                                   |
 | `editDoneLabel`  | DONE                                                                  |
 
-### method
+Method `send(feedback)` is an output of the directive, the usage is:
 
-```
-send(feedback)
-```
-
-it is an output of the directive, the usage is:
-
-```
-<button
-  feedback
-  (send)="onSend($event)">feedback
-</button>
+```html
+<button feedback (send)="onSend($event)">Feedback button</button>
 ```
 
-Then you can custom the onSend method in your component.
-The param feedback is an object contains two properties: description and screenshot.
+Then you can custom the `onSend` method in your component.
+The param `feedback` is an object contains two properties: `description` and `screenshot`.
 
 - description is string to describe issues or ideas
-- screenshot comes from HTMLCanvasElement.toDataURL('image/png'), can be used as src of an img tag.
+- screenshot comes from `HTMLCanvasElement.toDataURL('image/png')`, can be used as src of an img tag
 
 ### Getting started with this repo
 
-**Make sure you have Node version >= 10.13 and NPM >= 5**
-
-> Clone/Download the repo then edit feedback library inside [`/src/app/feedback`](/src/app/feedback)
+Clone/Download the repo then edit feedback library inside [`/src/app/feedback`](/src/app/feedback)
 
 ```bash
 # clone repo
-git clone https://github.com/Shealtiel/feedback.git
+git clone https://github.com/Shealtiel/ngx-feedback.git
 
 # change directory to our repo
 cd ngx-feedback
@@ -91,4 +74,4 @@ yarn start
 
 ```
 
-go to [http://127.0.0.1:4200](http://127.0.0.1:4200) or [http://localhost:4200](http://localhost:4200) in your browser
+go to <http://localhost:4200> in your browser
